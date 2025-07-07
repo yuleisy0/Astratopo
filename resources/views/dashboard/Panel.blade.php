@@ -30,7 +30,7 @@
           <div class="card bg-dark text-white h-100 cardInicio">
             <div class="card-body px-4 py-3">
               <h5 class="card-title text-center mt-4 mb-4">Sección Inicio</h5>
-              <a href="{{ route('editnosotros') }}" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
+              <a href="#" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
                 Editar
               </a>
             </div>
@@ -41,9 +41,9 @@
           <div class="card bg-dark text-white h-100 cardInicio">
             <div class="card-body px-4 py-3">
               <h5 class="card-title text-center mt-4 mb-4">Sección Nosotros</h5>
-              <button type="submit" class="btn btn-outline-light mx-auto d-block mb-3">
+              <a href="{{ route('editnosotros') }}" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
                 Editar
-              </button>
+              </a>
             </div>
           </div>
         </div>

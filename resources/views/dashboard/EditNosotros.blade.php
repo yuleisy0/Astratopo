@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <title>Astratopo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -24,34 +26,34 @@
     <div class="bg-editar py-5 d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-5 mb-4">
+                <div class="col-12 col-md-6 col-lg-7 mb-4">
                     <form method="POST" action="">
                         @csrf
                         @method('PUT')
-
-                        <h4 class="text-center mb-5">Editar sección Nosotros</h4>
+                        <div class="d-flex align-items-center mb-4 justify-content-center gap-3">
+                            <a href="{{ route('panel') }}" class="btn btn-outline-light p-2" style="width: fit-content;">
+                                <i class="fa-solid fa-arrow-left" style="color: #000000;"></i>
+                            </a>
+                            <h4 class="mb-0">Editar sección Nosotros</h4>
+                        </div>
                         <hr>
 
                         <div class="row">
-                            <!-- Columna 1 -->
                             <div class="col-md-6 mb-3">
                                 <label for="tituloPrincipal" class="form-label">Título principal</label>
                                 <input type="text" class="form-control" id="tituloPrincipal" name="tituloPrincipal" required>
                             </div>
 
-                            <!-- Columna 2 -->
                             <div class="col-md-6 mb-3">
                                 <label for="descripcionInicial" class="form-label">Descripción inicial</label>
                                 <input type="text" class="form-control" id="descripcionInicial" name="descripcionInicial" required>
                             </div>
 
-                            <!-- Columna completa para el textarea -->
                             <div class="col-12 mb-3">
                                 <label for="textoDescriptivo" class="form-label">Texto descriptivo</label>
                                 <textarea class="form-control" id="textoDescriptivo" name="textoDescriptivo" rows="4" style="resize: none;"></textarea>
                             </div>
 
-                            <!-- Columna completa para imagen -->
                             <div class="col-12 mb-3 text-center">
                                 <img src="{{ asset('images/Atratopo.jpeg') }}" alt="Imagen actual" class="img-fluid mb-3 rounded" style="max-width: 200px;">
                                 <input class="form-control" type="file" id="imagen" name="imagen">

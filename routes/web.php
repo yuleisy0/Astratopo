@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\PasswordRecoveryController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 
 
@@ -35,13 +35,7 @@ Route::get('/login', function () {
     return view('Login/Index');
 })->name('login');
 
-Route::get('/editnosotros', function () {
-    return view('Dashboard/EditNosotros');
-})->name('editnosotros');
-
-
-
-
+//para recuperar la contrasela
 
 Route::get('/recuperarcontrasena', function () {
     return view('Login.RecuperarContrasena');
@@ -70,8 +64,16 @@ Route::post('/guardar-nueva-contrasena', [PasswordResetController::class, 'guard
 
 
 
+//proteccion
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/panel', [AuthController::class, 'dashboard'])->middleware('auth');
+Route::get('/panel', [AuthController::class, 'dashboard'])->middleware('auth')->name('panel');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
+Route::get('/editnosotros', function () {
+    return view('Dashboard/EditNosotros');
+})->middleware('auth')->name('editnosotros');
+
+Route::get('/editinicio', function () {
+    return view('Dashboard/EditInicio');
+})->middleware('auth')->name('editinicio');
