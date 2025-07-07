@@ -16,23 +16,30 @@ class CodigoRecuperacion extends Mailable
     /**
      * Create a new message instance.
      */
-    public $codigo;
-
-    public function __construct($codigo)
+    public function __construct()
     {
-        $this->codigo = $codigo;
+        //
     }
-
-    public function build()
-    {
-        return $this->view('emails.codigo')->with(['codigo' => $this->codigo]);
-    }
- 
 
     /**
      * Get the message envelope.
      */
-   
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'Codigo Recuperacion',
+        );
+    }
+
+    /**
+     * Get the message content definition.
+     */
+    public function content(): Content
+    {
+        return new Content(
+            view: 'view.name',
+        );
+    }
 
     /**
      * Get the attachments for the message.
