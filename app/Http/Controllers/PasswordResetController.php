@@ -23,7 +23,6 @@ class PasswordResetController extends Controller
 
         Mail::to($request->email)->send(new CodigoRecuperacion($codigo));
 
-        // Cambiar de 'return view(...)' a redirección con parámetro email
         return redirect()->route('verificarcodigo', ['email' => $request->email]);
     }
 
