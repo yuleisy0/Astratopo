@@ -28,8 +28,8 @@
               @csrf
 
               <div class="mb-3 mt-4">
-                <label for="exampleInputEmail1" class="form-label">Correo de usuario</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
+                <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -39,6 +39,7 @@
 
                 <div class="d-grid gap-2 text-center">
                   <button type="password" class="btn btn-dark">Iniciar sesión</button>
+                  <a class="text-dark" href="/recuperarcontrasena">¿Olvidaste tu contraseña?</a>
                   @if ($errors->any())
                   <div style="color:red;">
                     @foreach ($errors->all() as $error)

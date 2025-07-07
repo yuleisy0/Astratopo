@@ -42,9 +42,7 @@
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('contactanos') ? 'active' : '' }}" href="{{ route('contactanos') }}">Contáctanos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('galeria') ? 'active' : '' }}" href="{{ route('galeria') }}">Galería</a>
-          </li>
+         
         </ul>
       </div>
     </div>
@@ -63,6 +61,10 @@
 
       </div>
     </div>
+    <div class="row mt-5 mb-5">
+
+    <h1>CARRUSEL</h1>
+      </div>
 
 <div class="row mt-5 mb-5">
   <div class="col-sm-6  mb-sm-0 mt-5">
