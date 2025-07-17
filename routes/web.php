@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\PasswordRecoveryController;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -10,13 +12,9 @@ use Illuminate\Http\Request;
 
 
 
+
 //Landing
-Route::get('/', function () {
-    return view('Landing/Inicio');
-})->name('inicio');;
-Route::get('/nosotros', function () {
-    return view('Landing/Nosotros');
-})->name('nosotros');
+Route::get('/', [InicioController::class, 'index'])->name('inicio');
 
 Route::get('/contactanos', function () {
     return view('Landing/Contactanos');
@@ -30,12 +28,13 @@ Route::get('/servicios', function () {
     return view('Landing/Servicios');
 })->name('servicios');
 
+Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros');
+
 //Login
 Route::get('/login', function () {
     return view('Login/Index');
 })->name('login');
 
-//para recuperar la contrasela
 
 Route::get('/recuperarcontrasena', function () {
     return view('Login.RecuperarContrasena');
@@ -70,10 +69,21 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/panel', [AuthController::class, 'dashboard'])->middleware('auth')->name('panel');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
-Route::get('/editnosotros', function () {
-    return view('Dashboard/EditNosotros');
-})->middleware('auth')->name('editnosotros');
 
-Route::get('/editinicio', function () {
-    return view('Dashboard/EditInicio');
-})->middleware('auth')->name('editinicio');
+Route::get('/editnosotros/{id}', [NosotrosController::class, 'edit'])
+    ->middleware('auth')
+    ->name('editnosotros');
+
+Route::put('/editnosotros/{id}', [NosotrosController::class, 'update'])
+    ->middleware('auth')
+    ->name('editnosotros.update');  // ¡Nombre diferente al anterior!
+
+
+Route::get('/editinicio/{id}', [InicioController::class, 'edit'])
+    ->middleware('auth')
+    ->name('editinicio');
+
+Route::put('/editinicio/{id}', [InicioController::class, 'update'])
+    ->middleware('auth')
+    ->name('editinicio.update');
+

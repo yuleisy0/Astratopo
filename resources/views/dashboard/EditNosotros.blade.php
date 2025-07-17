@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-7 mb-4">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('editnosotros.update', ['id' => $nosotros->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="d-flex align-items-center mb-4 justify-content-center gap-3">
@@ -41,29 +41,30 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="tituloPrincipal" class="form-label">Título principal</label>
-                                <input type="text" class="form-control" id="tituloPrincipal" name="tituloPrincipal" required>
+                                <input type="text" class="form-control" id="tituloPrincipal" name="tituloPrincipal" required value="{{ $nosotros->tituloPrincipal }}">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="descripcionInicial" class="form-label">Descripción inicial</label>
-                                <input type="text" class="form-control" id="descripcionInicial" name="descripcionInicial" required>
+                                <input type="text" class="form-control" id="descripcionInicial" name="descripcionInicial" required value="{{ $nosotros->descripcionInicial }}">
                             </div>
 
                             <div class="col-12 mb-3">
                                 <label for="textoDescriptivo" class="form-label">Texto descriptivo</label>
-                                <textarea class="form-control" id="textoDescriptivo" name="textoDescriptivo" rows="4" style="resize: none;"></textarea>
+                                <textarea class="form-control" id="textoDescriptivo" name="textoDescriptivo" rows="4" style="resize: none;" required>{{ $nosotros->textoDescriptivo }}</textarea>
                             </div>
 
                             <div class="col-12 mb-3 text-center">
-                                <img src="{{ asset('images/Atratopo.jpeg') }}" alt="Imagen actual" class="img-fluid mb-3 rounded" style="max-width: 200px;">
+                                @if ($nosotros->imagen)
+                                <img src="{{ asset($nosotros->imagen) }}" class="imagen img-fluid mt-4" style="max-width: 200px;">
+                                @endif
                                 <input class="form-control" type="file" id="imagen" name="imagen">
                             </div>
                         </div>
 
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-success ms-2">Guardar</button>
+                        <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
+                            <button type="submit" class="btn btn-success">Guardar</button>
                             <button type="submit" class="btn btn-danger ms-2">Cancelar</button>
-
                         </div>
                     </form>
 

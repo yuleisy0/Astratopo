@@ -30,8 +30,9 @@
           <div class="card bg-dark text-white h-100 cardInicio">
             <div class="card-body px-4 py-3">
               <h5 class="card-title text-center mt-4 mb-4">Sección Inicio</h5>
-              <a href="#" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
-                Editar
+              <a href="{{ route('editinicio', ['id' => 1]) }}" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">Editar</a>
+              <a href="{{ url('/') }}" target="_blank" class="btn btn-outline-light mx-auto d-block text-center mb-3" style="width: fit-content;">
+                <i class="fa-solid fa-eye"></i> Ver en landing
               </a>
             </div>
           </div>
@@ -41,9 +42,13 @@
           <div class="card bg-dark text-white h-100 cardInicio">
             <div class="card-body px-4 py-3">
               <h5 class="card-title text-center mt-4 mb-4">Sección Nosotros</h5>
-              <a href="{{ route('editnosotros') }}" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
+              <a href="{{ route('editnosotros', ['id' => 1]) }}" class="btn btn-outline-light mx-auto d-block mb-3 text-center" style="width: fit-content;">
                 Editar
               </a>
+              <a href="{{ url('/#nosotros') }}" target="_blank" class="btn btn-outline-light mx-auto d-block text-center" style="width: fit-content;">
+                <i class="fa-solid fa-eye"></i> Ver en landing
+              </a>
+
             </div>
           </div>
         </div>

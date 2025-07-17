@@ -13,12 +13,13 @@ class CodigoRecuperacion extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
+   
+    public $codigo;
+
+    public function __construct($codigo)
     {
-        //
+        $this->codigo = $codigo;
+
     }
 
     /**
@@ -37,7 +38,7 @@ class CodigoRecuperacion extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.codigo',
         );
     }
 
